@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:PAC3}/src/services/database.db",
+            "name": "database"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
