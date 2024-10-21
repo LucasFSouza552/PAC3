@@ -34,10 +34,20 @@ app.use(helmet());
 app.use(morgan('dev'));
 
 // Rota padrão
-app.get('/', (req, res) => {
+app.get('/registrar', (req, res) => {
     res.render('register');
-    // res.sendFile(path.join(process.cwd(), 'src', 'views', 'register.html'));
 });
+
+app.get('/', (req, res) =>{
+    res.send("Esta pagina não existe");
+})
+
+
+// Rota de login
+// Rota de registro
+// Rota de logout
+
+// Vincular API -> Criar artigos com ia -> Retornar para Front
 
 // Rotas da aplicação
 app.use('/api', apiRoute);

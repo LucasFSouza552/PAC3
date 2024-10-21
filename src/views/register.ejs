@@ -11,7 +11,7 @@
 
 <body>
     <div class="container">
-        <div class="left">
+        <!-- <div class="left">
             <div class="welcome-conteiner">
                 <h3>
                     <p>Bem-vindo</p>
@@ -22,7 +22,7 @@
                     Entrar
                 </a>
             </div>
-        </div>
+        </div> -->
 
         <div class="right">
             <div class="form">
@@ -34,37 +34,29 @@
                 </div>
                 <p>ou use email para registrar</p>
                 <form id="registerForm">
-                    <div class="form-group big-input">
+                    <div class="form-group register-input name-input">
                         <i class="bi bi-person-plus"></i>
-                        <!-- <label for="name">Nome:</label> -->
                         <input placeholder="Nome" type="text" id="name" name="name">
                     </div>
-                    <div class="form-group big-input">
+                    <div class="form-group register-input email-input">
                         <i class="bi bi-envelope-at"></i>
-                        <!-- <label for="email">Email:</label> -->
                         <input placeholder="Email" type="email" id="email" name="email">
                     </div>
-                    <div class="form-group big-input">
+                    <div class="form-group register-input password-input">
                         <i class="bi bi-person-lock"></i>
-                        <!-- <label for="password">Senha:</label> -->
                         <input placeholder="Senha" type="password" id="password" name="password">
                     </div>
-                    <div class="form-group big-input">
-
+                    <div class="form-group register-input password-input">
                         <i class="bi bi-person-lock"></i>
-                        <!-- <label for="confirm-password">Confirme Sua Senha:</label> -->
                         <input placeholder="Confirmar Senha" type="password" id="confirm-password"
                             name="confirm-password">
                     </div>
                     <div class="form-group submit">
                         <input type="submit" value="Cadastrar">
                     </div>
-                    <div id="error-message">
-
-                    </div>
+                    <div id="error-message"></div>
                 </form>
             </div>
-
         </div>
     </div>
 
