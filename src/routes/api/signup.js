@@ -6,25 +6,34 @@ const router = Router();
 const criarConta = async ({ name, email, password }) => {
     const db = await openDb();
 
-    const existingAccount = await db.get('SELECT * FROM accounts WHERE email = ?', [email]);
+    const existingAccount = await db.get('SELECT * FROM accounts WHERE email = $1', [email]);
 
     if (existingAccount) {
         db.close();
         return {
-            send: 'Email already in use',
-            code: 401
+            status: 'error',
+            message: 'O email já registrado',
+            code: 400
         };
     }
 
-    const createdAccount = await db.run(`INSERT INTO accounts ("id", "name", "email", "password") VALUES ("${uuidv4()}","${name}", "${email}", "${password}")`);
-    const account = await db.get(`SELECT * FROM accounts WHERE id = ${createdAccount.lastID}`);
+    const id = uuidv4();
+    await db.run(`INSERT INTO accounts ("id", "name", "email", "password") VALUES ("${id}","${name}", "${email}", "${password}")`);
+    const account = await db.get(`SELECT * FROM accounts WHERE id = "${id}"`);
+
     db.close();
-    return { send: account, code: 200 };
+    return {
+        status: "success",
+        message: "Usuário cadastrado com sucesso.",
+        user: account,
+        code: 200
+    };
 }
 
 router.post('/signup', async (req, res) => {
-    const { send, code } = await criarConta(req.body);
-    res.status(code).send(send);
+    const json = await criarConta(req.body);
+    console.log(json)
+    return res.status(json.code).json(json);
 });
 
 export default router;
