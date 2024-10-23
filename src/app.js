@@ -1,30 +1,31 @@
-// Bibliotecas
+// Importações de bibliotecas
 import express from "express";
 import dotenv from 'dotenv';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import path from "path";
-
 import { fileURLToPath } from 'url';
 
-// Rotas
+// Importações de rotas
 import loginRoute from './routes/auth/login.js';
 import apiRoute from './routes/api/signup.js';
 
-// Configuração
+
+// Configuração do ambiente
 dotenv.config();
 const PORT = process.env.PORT || 5000;
 
+// Inicialização do aplicativo
 const app = express();
 
 // Configuração do EJS como mecanismo de template
-app.set('view engine', 'ejs'); // Para EJS
+app.set('view engine', 'ejs');
 app.set('views', path.join(process.cwd(), 'src', 'views'));
-
 
 // Obter o caminho do arquivo atual
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
 // Middleware para servir arquivos estáticos
 app.use(express.static(path.join(__dirname, 'public'))); // Caminho para a pasta 'public'
 
@@ -34,20 +35,13 @@ app.use(helmet());
 app.use(morgan('dev'));
 
 // Rota padrão
+app.get('/', (req, res) => {
+    res.render('home');
+});
+
 app.get('/registrar', (req, res) => {
     res.render('register');
 });
-
-app.get('/', (req, res) =>{
-    res.send("Esta pagina não existe");
-})
-
-
-// Rota de login
-// Rota de registro
-// Rota de logout
-
-// Vincular API -> Criar artigos com ia -> Retornar para Front
 
 // Rotas da aplicação
 app.use('/api', apiRoute);
