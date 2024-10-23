@@ -54,8 +54,4 @@ router.post('/login',
         }
     });
 
-function autenticarUsuario(password, user) {
-
-}
-
 export default router;

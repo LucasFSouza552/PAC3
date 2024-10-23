@@ -28,7 +28,7 @@ const criarConta = async ({ name, email, password }) => {
         { userId: account.id, email: account.email },
         process.env.JWT_SECRET,
         { expiresIn: '1h' }
-    )
+    );
 
     return {
         status: "success",

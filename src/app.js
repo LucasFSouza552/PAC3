@@ -10,6 +10,7 @@ import { fileURLToPath } from 'url';
 import loginRoute from './routes/auth/login.js';
 import apiRoute from './routes/api/signup.js';
 
+import { register, main } from "./controllers/UserControllers.js";
 
 // Configuração do ambiente
 dotenv.config();
@@ -35,13 +36,12 @@ app.use(helmet());
 app.use(morgan('dev'));
 
 // Rota padrão
-app.get('/', (req, res) => {
+app.get('/', (req, res, next) => {
     res.render('home');
 });
 
-app.get('/registrar', (req, res) => {
-    res.render('register');
-});
+app.get('/registrar', register);
+app.get('/inicio', main);
 
 // Rotas da aplicação
 app.use('/api', apiRoute);
