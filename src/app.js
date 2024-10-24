@@ -10,7 +10,7 @@ import { fileURLToPath } from 'url';
 import loginRoute from './routes/auth/login.js';
 import apiRoute from './routes/api/signup.js';
 
-import { register, main } from "./controllers/UserControllers.js";
+import { register, main, login, articles } from "./controllers/UserControllers.js";
 
 // Configuração do ambiente
 dotenv.config();
@@ -40,6 +40,8 @@ app.get('/', (req, res, next) => {
     res.render('home');
 });
 
+app.get('/logar', login);
+app.get('/artigos', articles);
 app.get('/registrar', register);
 app.get('/inicio', main);
 

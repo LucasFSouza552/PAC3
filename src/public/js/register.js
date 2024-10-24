@@ -57,6 +57,8 @@ form.addEventListener('submit', async function (e) {
 
         // Como continuar?
 
+        window.location.href = '/inicio';
+
     } catch (error) {
         console.error('Erro:', error);
     }

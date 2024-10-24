@@ -27,8 +27,6 @@ body {
     background-size: cover;
     background-attachment: fixed;
     backdrop-filter: blur(3px);
-
-
 }
 
 .container {

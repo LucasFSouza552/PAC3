@@ -1,11 +1,42 @@
 <!DOCTYPE html>
 <html lang="Pt-Br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
     <title>Página Inicial</title>
 </head>
+
 <body>
-    
+    <header>
+        <nav>
+            <a href="/inicio">Inicio</a>
+            <a href="/artigos">Artigos</a>
+        </nav>
+        <div id="logoff">
+            <i class="bi bi-box-arrow-right"></i>
+            <p>Desconectar</p>
+        </div>
+    </header>
+
+    <section>
+        <div id="upload-articles">
+            <i class="bi bi-cloud-arrow-up-fill"></i>
+            <p>Ou arraste e solte um ou mais arquivos aqui</p>
+        </div>
+        <div>
+            <i class="bi bi-chat-dots"></i>
+            <input id="prompt" type="text" placeholder="Digite os parâmetros...">
+            <i class="bi bi-send"></i>
+        </div>
+    </section>
+
 </body>
+
 </html>

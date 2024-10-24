@@ -6,5 +6,13 @@ const main = (req, res) => {
     res.render('main');
 }
 
+const login = (req, res) => {
+    res.render('login');
+}
 
-export { register, main };
+const articles = (req, res) => {
+    res.render('articles');
+}
+
+
+export { register, main, login, articles };
