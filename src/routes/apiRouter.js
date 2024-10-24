@@ -1,6 +1,8 @@
 import { Router } from "express";
-import articleflow from "./api/ArticleFlow.js";
 import rateLimit from 'express-rate-limit';
+
+import articleflow from "./api/ArticleFlow.js";
+import signup from "./api/signup.js";
 
 const router = Router();
 
@@ -10,5 +12,6 @@ const getLimiter = rateLimit({
 });
 
 router.post('/articleflow', getLimiter, articleflow);
+router.post('/signup', getLimiter, signup)
 
 export default router;

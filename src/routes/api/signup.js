@@ -1,9 +1,7 @@
-import { Router } from 'express';
 import { openDb } from '../../services/databaseConnect.js';
 import { v4 as uuidv4 } from 'uuid';
 
 import jwt from 'jsonwebtoken';
-const router = Router();
 
 const criarConta = async ({ name, email, password }) => {
     const db = await openDb();
@@ -39,11 +37,9 @@ const criarConta = async ({ name, email, password }) => {
     };
 }
 
-
-// API que retonar o token do usuário
-router.post('/signup', async (req, res) => {
+const signup = async (req, res) => {
     const json = await criarConta(req.body);
     return res.status(json.code).json(json);
-});
+}
 
-export default router;
+export default signup;

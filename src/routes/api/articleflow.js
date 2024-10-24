@@ -1,8 +1,5 @@
-import { Router } from "express";
 import jwt from 'jsonwebtoken';
 import { getArticles } from "../../services/getArticles.js";
-
-const router = Router();
 
 const articleflow = async (req, res) => {
 
@@ -13,10 +10,7 @@ const articleflow = async (req, res) => {
     }
 
     const datas = jwt.decode(token);
-    console.log(datas);
-
     const articles = await getArticles(datas.userId);
-    console.log(articles);
 
     return res.status(200).send({ articles });
 }
