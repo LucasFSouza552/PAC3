@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url';
 
 // Importações de rotas
 import loginRoute from './routes/auth/login.js';
-import apiRoute from './routes/api/signup.js';
+import apiRoute from './routes/apiRouter.js';
 
 import { register, main, login, articles } from "./controllers/UserControllers.js";
 
@@ -36,10 +36,11 @@ app.use(helmet());
 app.use(morgan('dev'));
 
 // Rota padrão
-app.get('/', (req, res, next) => {
+app.get('/', (req, res) => {
     res.render('home');
 });
 
+// Rotas
 app.get('/logar', login);
 app.get('/artigos', articles);
 app.get('/registrar', register);
@@ -57,5 +58,5 @@ app.use((err, req, res, next) => {
 
 // Inicialização do servidor
 app.listen(PORT, () => {
-    console.log(`Servidor iniciado na porta ${PORT}`);
+    console.log(`Servidor iniciado na porta http://localhost:${PORT}`);
 });

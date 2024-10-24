@@ -16,7 +16,7 @@ router.post('/login',
     loginLimiter,
     [
         body('email').isEmail().normalizeEmail(),
-        body('password').isLength({ min: 5 })
+        body('password').isLength({ min: 3 })
     ],
     async (req, res) => {
         const errors = validationResult(req);

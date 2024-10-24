@@ -1,8 +1,11 @@
-import { openDb } from "./databaseConnect";
+import { openDb } from "./databaseConnect.js";
 
-export const getArticlesByUserId = async (id) => {
+export { getArticles };
+
+
+const getArticles = async (id) => {
     const db = await openDb();
-    const articles = await db.all(`SELECT * FROM articles WHERE accountId = ${id}`);
+    const articles = await db.all(`SELECT * FROM articles WHERE accountId = $1`, [id]);
     db.close();
     return articles;
 }
